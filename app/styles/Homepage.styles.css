@@ -1,0 +1,40 @@
+.container {
+  display: flex;
+  width: 100%;
+  margin: 0 auto;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #c5d1f0;
+}
+
+h1 {
+  letter-spacing: -2px;
+}
+
+span {
+  margin-top: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+ul {
+  list-style-type: none;
+  padding: 1rem 2rem;
+  width: 500px;
+  height: 300px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+li {
+  display: block;
+  background: #3e4257;
+  border-radius: 4px;
+  padding: .5rem 1rem;
+  box-shadow: rgb(130, 150, 172) 3px 3px 0px;
+  text-transform: capitalize;
+  margin: 0 1rem 0 1rem;
+}
