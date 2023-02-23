@@ -21,7 +21,7 @@
  * @type {import('@remix-run/dev').AppConfig}
  */
 module.exports = {
-  serverBuildTarget: 'vercel',
+  serverBuildTarget: 'neutral',
   server: ['test', 'development'].includes(process.env.NODE_ENV)
     ? undefined
     : './server.js',
