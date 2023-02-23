@@ -13,7 +13,7 @@ module.exports = {
   serverMainFields: ['browser', 'module', 'main'],
   serverConditions: ['worker', process.env.NODE_ENV],
   serverDependenciesToBundle: 'all',
-  serverModuleFormat: 'esm',
-  serverPlatform: 'neutral',
+  // serverBuildTarget: 'esm',
+  serverBuildTarget: 'neutral',
   serverMinify: process.env.NODE_ENV === 'production',
 };
