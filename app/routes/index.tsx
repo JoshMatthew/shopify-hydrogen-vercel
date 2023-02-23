@@ -1,23 +1,20 @@
-import {json} from '@shopify/remix-oxygen';
+import {json} from '@remix-run/server-runtime';
 import styles from '../styles/Homepage.styles.css';
-import {LinksFunction, LoaderArgs} from '@shopify/remix-oxygen';
-import {CollectionConnection} from '@shopify/hydrogen/storefront-api-types';
+import {LinksFunction, LoaderArgs} from '@remix-run/server-runtime';
 import {useLoaderData} from '@remix-run/react';
 
 export const links: LinksFunction = () => {
   return [{rel: 'stylesheet', href: styles}];
 };
 
-export const loader = async ({context: {storefront}}: LoaderArgs) => {
-  const {collections} = await storefront.query<{
-    collections: CollectionConnection;
-  }>(COLLECTIONS_QUERY);
+export const loader = async (args: LoaderArgs | any) => {
+  const {collections} = await args.context.storefront.query(COLLECTIONS_QUERY);
 
   return json({collections});
 };
 
 export default function HomePage() {
-  const {collections} = useLoaderData<typeof loader>();
+  const {collections} = useLoaderData();
 
   return (
     <div className="container">
@@ -25,7 +22,7 @@ export default function HomePage() {
       <span>Collections</span>
 
       <ul>
-        {collections.nodes.map((collection) => {
+        {collections.nodes.map((collection: any) => {
           return <li key={collection.id}>{collection.handle}</li>;
         })}
       </ul>

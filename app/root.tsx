@@ -2,7 +2,7 @@ import {
   type LinksFunction,
   type MetaFunction,
   type LoaderArgs,
-} from '@shopify/remix-oxygen';
+} from '@remix-run/server-runtime';
 import {
   Links,
   Meta,
@@ -35,8 +35,8 @@ export const meta: MetaFunction = () => ({
   viewport: 'width=device-width,initial-scale=1',
 });
 
-export async function loader({context}: LoaderArgs) {
-  const layout = await context.storefront.query<{shop: Shop}>(LAYOUT_QUERY);
+export async function loader({context}: LoaderArgs | any) {
+  const layout = await context.storefront.query(LAYOUT_QUERY);
   return {layout};
 }
 

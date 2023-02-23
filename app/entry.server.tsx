@@ -1,4 +1,4 @@
-import type {EntryContext} from '@shopify/remix-oxygen';
+import type {EntryContext} from '@remix-run/server-runtime';
 import {RemixServer} from '@remix-run/react';
 import {renderToReadableStream} from 'react-dom/server';
 
@@ -6,7 +6,7 @@ export default async function handleRequest(
   request: Request,
   responseStatusCode: number,
   responseHeaders: Headers,
-  remixContext: EntryContext,
+  remixContext: EntryContext | any,
 ) {
   const body = await renderToReadableStream(
     <RemixServer context={remixContext} url={request.url} />,

@@ -37,4 +37,10 @@ li {
   box-shadow: rgb(130, 150, 172) 3px 3px 0px;
   text-transform: capitalize;
   margin: 0 1rem 0 1rem;
+  cursor: pointer;
+}
+
+li:hover {
+  background: #bfc1cf;
+  color: #111149;
 }
